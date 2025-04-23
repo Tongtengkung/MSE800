@@ -1,5 +1,5 @@
 import numpy as np
-interger_array = np.array([-5,-4,-3,-2,-1,0,1,2,3,4])
+interger_array = np.array([1,2,4,16,32,64,128,256,512,1024])
 
 print("Interger array:", interger_array)                                       #Print array
 print("\n")
