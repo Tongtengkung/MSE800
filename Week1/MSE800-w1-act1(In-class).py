@@ -17,7 +17,7 @@ for day_n,f_temp in enumerate(fahrenheit,start=1):
     print(f"Day{day_n} {f_temp:.2f}°C")
 print("\n")
 
-temp_over_20_degree = np.where(temperatures > 20)[0]          #Find the temp over 20 degrees
+temp_over_20_degree = np.where(temperatures > 20)[1]          #Find the temp over 20 degrees
 print("Temperature over 20°C:")
 for day_n2 in temp_over_20_degree:
     d_temp = temperatures[day_n2]                             #Use the index to get the temperature value
