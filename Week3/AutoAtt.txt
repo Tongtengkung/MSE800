@@ -1,0 +1,10 @@
+Attendant Automation
+
+Class
+
+# Time Management       -   Create/editing a time table
+# Student registration  -   Allow to add/delete the student member
+# notification          -   notification in a case of too many absence/late etc.
+# Activity logs         -   To following activity of each student to adttending to the classroom
+# ID check              -   Use to check prove of student
+# Comment               -   for indecating before a class start about situation (late, absence, etc.)
