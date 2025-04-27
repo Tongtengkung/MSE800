@@ -20,3 +20,18 @@ n = int(number)
 
 factorial = Factorial(n)
 print(f"Factorial of {n} is {factorial.calculate()}")
+
+class Prime:
+    def __init__(self, n):
+        self.n = n
+
+    def is_prime(self):
+        if self.n < 2:
+            return False
+        for i in range(2, int(self.n ** 0.5) + 1):
+            if self.n % i == 0:
+                return False
+        return True
+
+prime = Prime(n)
+print(f"{n} is prime: {prime.is_prime()}")
