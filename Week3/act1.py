@@ -1,37 +1,45 @@
-class Factorial:
-    def __init__(self, n):
-        self.n = n
+class Library:                                                              #define a class for the library
+    def __init__(self):                                                     #initialize the library with an empty list of books                                             
+        self.books = []
 
-    def calculate(self):
-        if self.n < 0:
-            return "Unidentify number lower than zero"
+    def add_book(self, name):                                               #define a method to add a book to the library
+        self.books.append(book)
+              
+    def delete_book(self, name):                                            #define a method to delete a book from the library
+        self.books.remove(book)
+    
+    def list_books(self):                                                   #define a method to list all books in the library
+        for book in self.books:
+            print(book)
 
-        elif 0 < self.n == 1:
-            return 1
+library = Library()                                                         #create an instance of the Library class
+                                                              
+print("Welcome to the Library!")
 
-        else:
-            result = 1
-            for i in range(1, self.n + 1):
-                result *= i
-            return result
+while True:                                                                 #start an infinite loop
 
-number = input("input value(PLEASE PUT INTENGER NUMBER):")
-n = int(number)
+    act1 = input("Please, enter the action (add, delete, list, exit): ")    #prompt the user for an action
+    if act1 == "add":
+        for list, book in enumerate(library.books, start=1):
+            print(f"Book {list}: {book}")
+        book = input("Enter the book name (title): ")
+        library.add_book(book)
+        print(f"Book '{book}' added successfully.")
 
-factorial = Factorial(n)
-print(f"Factorial of {n} is {factorial.calculate()}")
+    elif act1 == "list":                                                    #if the user chooses to list books
+        for list, book in enumerate(library.books, start=1):
+            print(f"Book {list}: {book}")
 
-class Prime:
-    def __init__(self, n):
-        self.n = n
+    elif act1 == "delete":                                                  #if the user chooses to delete a book
+        for list, book in enumerate(library.books, start=1):
+            print(f"Book {list}: {book}")
+        book = input("Enter the book title to delete: ")
+        library.delete_book(book)
+        print(f"Book '{book}' deleted successfully.")
 
-    def is_prime(self):
-        if self.n < 2:
-            return False
-        for i in range(2, int(self.n ** 0.5) + 1):
-            if self.n % i == 0:
-                return False
-        return True
-
-prime = Prime(n)
-print(f"{n} is prime: {prime.is_prime()}")
+    elif act1 == "exit":                                                    #if the user chooses to exit the program
+        print("Exiting the program.")
+        break
+    
+    else:                                                                   #if the user enters an invalid action
+        print("Invalid action. Please try again.")
