@@ -21,4 +21,5 @@ class Factorial:
         else:
             print(f"{num1} is not a prime number.")
 
-Factorial.display(10)                                                       # Call the display method                  
+Factorial.display(10)                                                       # Call the display method   
+#132               
