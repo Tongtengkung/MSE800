@@ -14,5 +14,16 @@ def create_table():                                                     #ฟั�
             email TEXT NOT NULL UNIQUE
         )
     ''')
+
+def create_course_table():                                              #ฟังก์ชันสำหรับสร้างตาราง course ในฐานข้อมูล
+    conn = create_connection()                                          #สร้างการเชื่อมต่อกับฐานข้อมูล
+    cursor = conn.cursor()                                              #ใช้สำหรับการสร้าง cursor object
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS course (
+            course_id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            unit INTEGER
+        )
+    ''')
     conn.commit()
     conn.close()

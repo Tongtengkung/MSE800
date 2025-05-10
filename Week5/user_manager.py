@@ -43,3 +43,15 @@ def advance_search_user(name,user_id):                                          
     rows = cursor.fetchall()                                                                        #ใช้สำหรับการดึงข้อมูลทั้งหมดจาก cursor object
     conn.close()                                                                                    #ปิดการเชื่อมต่อกับฐานข้อมูล   
     return rows                                                                                     #ส่งค่าข้อมูลทั้งหมดกลับไปยังฟังก์ชันที่เรียกใช้
+
+def insert_course(course_id, name, unit):
+    conn = create_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("INSERT INTO course (course_id, name, unit) VALUES (?, ?, ?)", (course_id, name, unit))
+        conn.commit()
+        print("Course inserted successfully.")
+    except sqlite3.IntegrityError:
+        print("Course ID must be unique.")
+    finally:
+        conn.close()
