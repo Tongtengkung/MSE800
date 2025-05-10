@@ -1,6 +1,5 @@
 from database import create_table
 from user_manager import add_user, view_users, search_user, delete_user, advance_search_user
-from course_manager import add_course
 
 def menu():
     print("\n==== User Manager ====")
@@ -10,7 +9,6 @@ def menu():
     print("4. Delete User by ID")
     print("5. Exit ")
     print("6. Advanced search based on ID and name")
-    print("7. Add Course")
 
 def main():
     create_table()                                                                                      
@@ -41,12 +39,7 @@ def main():
             user_id = int(input("Enter user ID to search: "))
             users = advance_search_user(name,user_id)                                                             
             print(user)
-
-        elif choice == '7':
-            course_id = int(input("Enter course ID: "))
-            name = input("Enter course name: ")
-            unit = int(input("Enter course unit: "))
-            add_course(course_id, name, unit)                                                             
+                                                 
 
 if __name__ == "__main__":              #ฟังก์ชันหลักที่ใช้ในการเรียกใช้งานโปรแกรม
     main()
