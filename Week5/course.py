@@ -1,20 +1,18 @@
 from database import create_course_table
-from course_manager import add_course, view_courses
+from course_manager import add_course, view_courses, delete_course
 
 def menu():
     print("\n==== Course Manager ====")
     print("1. Add Course")
     print("2. View All Courses")
-    print("3. Search course by Name")
-    print("4. Delete course by ID")
-    print("5. Exit ")
-    print("6. Advanced search based on ID and name")
+    print("3. Delete course by ID")
+    print("4. Exit ")
 
 def main():
     create_course_table()                                                                                      
     while True:
         menu()
-        choice = input("Select an option (1-6): ")
+        choice = input("Select an option (1-4): ")
         if choice == '1':
             name = input("Enter name: ")
             unit = input("Enter unit: ")
@@ -25,7 +23,11 @@ def main():
             for course in courses:
                 print(course)
         
-        elif choice == '5':
+        elif choice == '3':
+            course_id = int(input("Enter course to delete: "))
+            delete_course(course_id)
+
+        elif choice == '4':
             print("Goodbye!")
             break
                                                                   
