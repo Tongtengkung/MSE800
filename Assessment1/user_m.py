@@ -1,4 +1,4 @@
-from Assessment1.database import create_connection
+from database import create_connection
 import sqlite3
 
 def register_account(user_id, name, email, password, telephone, address):

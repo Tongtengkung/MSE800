@@ -1,4 +1,4 @@
-from Assessment1.database import create_connection
+from database import create_connection
 import sqlite3
 
 def admin_add_user(user_id, name, email, password, telephone, address):
@@ -86,11 +86,3 @@ def admin_delete_user(user_id):
 
     conn = create_connection()
     cursor = conn.cursor()
-    try:
-        cursor.execute("INSERT INTO course (course_id, name, unit) VALUES (?, ?, ?)", (course_id, name, unit))
-        conn.commit()
-        print("Course inserted successfully.")
-    except sqlite3.IntegrityError:
-        print("Course ID must be unique.")
-    finally:
-        conn.close()

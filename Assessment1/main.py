@@ -1,4 +1,4 @@
-from Assessment1.database import create_user_table
+from database import create_user_table
 from user_m import register_account,delete_user
 from admin_m import admin_add_user, admin_change_user, admin_view_user, admin_search_user, admin_delete_user
 
@@ -60,7 +60,8 @@ def main():                                                                     
         elif choice == '4':
             print("Goodbye!")
             break
-                                
+        else:
+            print("Invalid choice. Please try again.")                   
 
 if __name__ == "__main__":                                              
     main()
