@@ -1,4 +1,4 @@
-from Assesment1.database import create_connection
+from Assessment1.database import create_connection
 import sqlite3
 
 def admin_add_user(user_id, name, email, password, telephone, address):
