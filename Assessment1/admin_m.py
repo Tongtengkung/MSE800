@@ -1,16 +1,16 @@
-from database import create_connection
+from database import create_connection, create_user_table
 import sqlite3
 
 def admin_add_user(user_id, name, email, password, telephone, address):
-    conn = create_connection()                                                              #สร้างการเชื่อมต่อกับฐานข้อมูล
-    cursor = conn.cursor()                                                                  #ใช้สำหรับการสร้าง cursor object
+    conn = create_connection()                                                              
+    cursor = conn.cursor()                                                                  
     try:
-        cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", (name, email))      #ใช้สำหรับการเพิ่มข้อมูลลงในตาราง users
-        conn.commit()                                                                       #ใช้สำหรับการบันทึกการเปลี่ยนแปลงในฐานข้อมูล
-        print(" User added successfully.")                                                  #แสดงข้อความเมื่อเพิ่มข้อมูลสำเร็จ
-    except sqlite3.IntegrityError:                                                          #ใช้สำหรับการจัดการข้อผิดพลาดที่เกิดจากการละเมิดความสมบูรณ์ของข้อมูล
-        print(" Email must be unique.")                                                     #แสดงข้อความเมื่ออีเมลซ้ำ
-    conn.close()                                                                            #ปิดการเชื่อมต่อกับฐานข้อมูล
+        cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", (name, email))      
+        conn.commit()                                                                       
+        print(" User added successfully.")                                                  
+    except sqlite3.IntegrityError:                                                          
+        print(" Email must be unique.")                                                     
+    conn.close()                                                                            
 
 def admin_change_user(user_id, name=None, email=None, password=None, telephone=None, address=None):
     """
