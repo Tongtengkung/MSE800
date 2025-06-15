@@ -12,9 +12,12 @@ def get_O_or_X():                                                               
             print("Invalid choice. Please enter 'O' or 'X'.")
 
 def display(board):
-    for row in board:
-        print(" | ".join(row))
-        print("-" * 9)
+    print("   0   1   2 (Column)")                                                          # Print column headers
+    for i, row in enumerate(board):
+        print(f"{i}  " + " | ".join(row))                                           # Print row number followed by row contents
+        if i < 2:
+            print("  " + "-" * 11)
+    print("(Row)")
 
 def game_over(board):
     return check_winner(board, 'X') or check_winner(board, 'O') or not empty_squares(board)
@@ -59,7 +62,7 @@ def play_game(board, human_player):
 def make_human_move(board, current_player):
     while True:
         try:
-            move = input("Enter your move as 'row col' (0-2): ")
+            move = input("Enter your move as 'row column' (0-2): ")
             row_str, col_str = move.strip().split()
             row, col = int(row_str), int(col_str)
             if (row, col) in empty_squares(board):
